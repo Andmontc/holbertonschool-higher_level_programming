@@ -19,10 +19,11 @@ int is_palindrome(listint_t **head)
 		i++;
 		tmp = tmp->next;
 	}
-	for (j = 0; j <= (i - 1); j++, i--)
+	i--;
+	for (j = 0; j <= i; j++, i--)
 	{
 		if (arr[i] != arr[j])
-			return (1);
+			return (0);
 	}
-	return (0);
+	return (1);
 }
