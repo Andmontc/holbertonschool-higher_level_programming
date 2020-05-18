@@ -2,10 +2,10 @@
 def safe_print_list_integers(my_list=[], x=0):
     j = 0
     for i in my_list[:x]:
-        j += 1
         try:
             print("{:d}".format(i), end="")
+            j += 1
         except (TypeError, ValueError):
-            pass
+            continue
     print()
     return j
