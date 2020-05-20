@@ -51,7 +51,7 @@ class Square:
             print()
         else:
             for posone in range(self.__position[1]):
-                print(" ")
+                print("")
             for row in range(self.__size):
                 for postwo in range(self.__position[0]):
                     print(" ", end="")
