@@ -15,6 +15,11 @@ class Square:
         """ get the data """
         return self.__size
 
+    @property
+    def position(self):
+        """ get position data """
+        return self.__position
+
     @size.setter
     def size(self, value):
         """change the data"""
@@ -24,11 +29,6 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
-
-    @property
-    def position(self):
-        """ get position data """
-        return self.__position
 
     @position.setter
     def position(self, value):
