@@ -22,10 +22,13 @@ def matrix_divided(matrix, div):
 
     msg = "matrix must be a matrix (list of lists) of integers/floats"
 
+    if not matrix:
+        raise TypeError(msg)
+
     if type(div) not in [int, float]:
         raise TypeError("div must be a number")
 
-    if div is 0:
+    if div == 0:
         raise ZeroDivisionError("division by zero")
 
     if type(matrix) is not list or matrix == []:
