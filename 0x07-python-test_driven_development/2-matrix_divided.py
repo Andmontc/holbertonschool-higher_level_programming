@@ -17,32 +17,35 @@ def matrix_divided(matrix, div):
     Returns:
         A new matrix representing the result of the division.
     """
-    err1 = "matrix must be a matrix (list of lists) of integers/floats"
-    err2 = "Each row of the matrix must have the same size"
-    err3 = "div must be a number"
+
+    new_matrix = []
+
+    msg = "matrix must be a matrix (list of lists) of integers/floats"
 
     if not matrix:
-        raise TypeError(err1)
-    if matrix == [[]] or matrix == []:
-        raise TypeError(err1)
+        raise TypeError(msg)
 
-    count = len(matrix[0])
-
-    for lists in matrix:
-        comp = len(lists)
-        for ele in lists:
-
-            if not isinstance(ele, (int, float)):
-                raise TypeError(err1)
-        if comp != count:
-            raise TypeError(err2)
-
-    if not isinstance(div, (int, float)):
-        raise TypeError(err3)
+    if type(div) not in [int, float]:
+        raise TypeError("div must be a number")
 
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    new = [[round(i/div, 2) for i in row] for row in matrix]
+    if type(matrix) is not list or matrix == []:
+        raise TypeError(msg)
+    else:
+        longitude = len(matrix[0])
 
-    return new
+    for f_matrix in matrix:
+        if any(type(x) not in [int, float] for x in f_matrix):
+            raise TypeError(msg)
+
+        if type(f_matrix) is not list or f_matrix == []:
+            raise TypeError(msg)
+
+        if len(f_matrix) is not longitude:
+            raise TypeError("Each row of the matrix must have the same size")
+
+        new_matrix.append(list(map(lambda x: round(x / div, 2), f_matrix)))
+
+    return new_matrix
