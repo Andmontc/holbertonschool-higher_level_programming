@@ -3,7 +3,6 @@
 
 
 def text_indentation(text):
-    temp_text = ''
     """
     Function that prints a text
     Args:
@@ -11,6 +10,7 @@ def text_indentation(text):
     Raises:
         TypeError: "text must be a string"
     """
+    temp_text = ''
     if type(text) != str:
         raise TypeError("text must be a string")
 
