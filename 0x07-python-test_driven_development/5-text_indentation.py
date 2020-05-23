@@ -8,6 +8,8 @@ def text_indentation(text):
     Function that prints a text
     Args:
         text (str): Text given by the user.
+    Raises:
+        TypeError: "text must be a string"
     """
     if type(text) != str:
         raise TypeError("text must be a string")
