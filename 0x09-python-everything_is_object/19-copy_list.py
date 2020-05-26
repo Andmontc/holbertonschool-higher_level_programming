@@ -1,4 +1,3 @@
 #!/usr/bin/python3
 def copy_list(l):
-    """ list copy """
     return l.copy()
