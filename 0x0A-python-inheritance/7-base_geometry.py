@@ -13,6 +13,6 @@ class BaseGeometry:
             Args: name and value
             Raises: Errors"""
         if type(value) != int:
-            raise TypeError("{:s} must be an integer".format(name))
+            raise TypeError("{} must be an integer".format(name))
         if value <= 0:
-            raise ValueError("{:s} must be greater than 0".format(name))
+            raise ValueError("{} must be greater than 0".format(name))
