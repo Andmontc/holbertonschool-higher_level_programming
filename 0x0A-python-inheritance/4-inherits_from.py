@@ -1,4 +1,4 @@
-#!/usr/biin/python3
+#!/usr/bin/python3
 """ Function that check if an object is an inherited instance"""
 
 
