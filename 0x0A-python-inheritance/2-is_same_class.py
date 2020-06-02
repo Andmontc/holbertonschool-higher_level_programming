@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" function that compare """
 
 
 def is_same_class(obj, a_class):
