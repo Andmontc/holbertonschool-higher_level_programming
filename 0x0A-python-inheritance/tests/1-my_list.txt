@@ -2,35 +2,35 @@ The ``1-my_list`` module
 ==========================
 
 Using ``MyList``
-----------------
+---------------------
 
 >>> MyList = __import__('1-my_list').MyList
 
 
-    >>> my_list = MyList()
-    >>> my_list.append(5)
-    >>> my_list.append(4)
-    >>> my_list.append(3)
-    >>> my_list.append(2)
-    >>> my_list.append(1)
-    >>> print(my_list)
-    [5, 4, 3, 2, 1]
+	>>> my_list = MyList()
+	>>> my_list.append(5)
+	>>> my_list.append(4)
+	>>> my_list.append(3)
+	>>> my_list.append(2)
+	>>> my_list.append(1)
+	>>> print(my_list)
+	[5, 4, 3, 2, 1]
 
-    >>> my_list.print_sorted()
-    [1, 2, 3, 4, 5]
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
 
-    >>> my_list = MyList()
-    >>> my_list.append(86235)
-    >>> my_list.append(-87)
-    >>> my_list.append(7)
-    >>> my_list.append(0)
-    >>> my_list.append(853)
-    >>> print(my_list)
-    [86235, -87, 7, 0, 853]
+	>>> my_list = MyList()
+	>>> my_list.append(86264)
+	>>> my_list.append(-87)
+	>>> my_list.append(7)
+	>>> my_list.append(0)
+	>>> my_list.append(853)
+	>>> print(my_list)
+	[86264, -87, 7, 0, 853]
 
-    >>> my_list.print_sorted()
-    [-87, 0, 7, 853, 86235]
+	>>> my_list.print_sorted()
+	[-87, 0, 7, 853, 86264]
 
-    >>> my_list = MyList()
-    >>> my_list.print_sorted()
-    []
+	>>> my_list = MyList()
+	>>> my_list.print_sorted()
+	[]
