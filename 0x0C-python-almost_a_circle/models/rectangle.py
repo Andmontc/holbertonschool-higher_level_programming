@@ -12,18 +12,26 @@ class Rectangle(Base):
         self.x = x
         self.y = y
         super().__init__(id)
+
+
 @property
 def width(self):
     """ get data (getter)"""
     return self.__width
+
+
 @property
 def height(self):
     """ get data (getter)"""
     return self.__height
+
+
 @property
 def x(self):
     """ get data (getter)"""
     return self.x
+
+
 @property
 def y(self):
     """ get data (getter)"""
