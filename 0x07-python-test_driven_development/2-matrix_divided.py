@@ -17,21 +17,35 @@ def matrix_divided(matrix, div):
     Returns:
         A new matrix representing the result of the division.
     """
-    if not isinstance(matrix, list) or matrix == []:
-        raise TypeError("matrix must be a matrix "
-                        "(list of lists) of integers/floats")
-    if not all(isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a matrix "
-                        "(list of lists) of integers/floats")
-    for row in matrix:
-        for number in row:
-            if type(number) != int and type(number) != float:
-                raise TypeError("matrix must be a matrix "
-                                "(list of lists) of integers/floats")
-    if type(div) != int and type(div) != float:
+
+    new_matrix = []
+
+    msg = "matrix must be a matrix (list of lists) of integers/floats"
+
+    if not matrix:
+        raise TypeError(msg)
+
+    if type(div) not in [int, float]:
         raise TypeError("div must be a number")
+
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    if not all(len(matrix[0]) == len(row) for row in matrix):
-        raise TypeError("Each row of the matrix must have the same size")
-    return [list(map(lambda n: round(n / div, 2), row)) for row in matrix]
+
+    if type(matrix) is not list or matrix == []:
+        raise TypeError(msg)
+    else:
+        longitude = len(matrix[0])
+
+    for f_matrix in matrix:
+        if any(type(x) not in [int, float] for x in f_matrix):
+            raise TypeError(msg)
+
+        if type(f_matrix) is not list or f_matrix == []:
+            raise TypeError(msg)
+
+        if len(f_matrix) is not longitude:
+            raise TypeError("Each row of the matrix must have the same size")
+
+        new_matrix.append(list(map(lambda x: round(x / div, 2), f_matrix)))
+
+    return new_matrix
