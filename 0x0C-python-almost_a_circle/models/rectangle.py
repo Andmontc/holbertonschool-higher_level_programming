@@ -34,7 +34,7 @@ class Rectangle(Base):
         return self.__y
 
     @width.setter
-    def width(self,width):
+    def width(self, width):
         """ change the data (width setter) """
         if type(width) != int:
             raise TypeError("width must be an integer")
@@ -72,4 +72,10 @@ class Rectangle(Base):
     def area(self):
         """ area of the rectangle """
         return self.__width * self.__height
-    
+
+    def display(self):
+        """ print the rectangle in stdout"""
+        for h in range(self.__height):
+            for w in range(self.__width):
+                print("#", end="")
+            print("")
