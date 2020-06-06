@@ -75,10 +75,11 @@ class Rectangle(Base):
 
     def display(self):
         """ print the rectangle in stdout"""
-        for h in range(self.__height):
-            for w in range(self.__width):
-                print("#", end="")
+        for i in range(self.__y):
             print("")
+        for h in range(self.__height):
+            print(" " * self.__x, end="")
+            print("#" * self.width)
 
     def __str__(self):
         """ override str """
