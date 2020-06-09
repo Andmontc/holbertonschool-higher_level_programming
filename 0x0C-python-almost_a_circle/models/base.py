@@ -46,13 +46,11 @@ class Base:
     def create(cls, **dictionary):
         """ update methods rectangle and square """
         if cls.__name__ == "Rectangle":
-            obj = Rectangle(1, 4, 5, 2)
-            obj.update(**dictionary)
-            return obj
-        if cls.__name__ == "Square":
-            obj = Square(8, 3, 2)
-            obj.update(**dictionary)
-            return obj
+            c = Rectangle(1, 1, 0, 0)
+        elif cls.__name__ == "Square":
+            c = Square(1, 0, 0)
+        c.update(**dictionary)
+        return c
 
     @classmethod
     def load_from_file(cls):
