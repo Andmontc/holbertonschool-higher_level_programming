@@ -57,7 +57,7 @@ class TestBasepep8(unittest.TestCase):
         base = "models/base.py"
         test_base = "tests/test_models/test_base.py"
         result = style.check_files([base, test_base])
-        self.assertEqual(result.total_errors, 2)
+        self.assertEqual(result.total_errors, 0)
 
 
 class TestDocs(unittest.TestCase):
