@@ -6,6 +6,7 @@ from unittest.mock import patch
 from io import StringIO
 from models.rectangle import Rectangle
 from models.base import Base
+import pep8
 
 
 class TestRectangle(unittest.TestCase):
@@ -201,6 +202,34 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r3_dictionary, dictionary)
         self.assertEqual(type(r3_dictionary), dict)
 
+
+class TestRectanglepep8(unittest.TestCase):
+    """Validate pep8"""
+
+    def test_pep8(self):
+        """test for base file and test_base file pep8"""
+        style = pep8.StyleGuide(quiet=True)
+        rectangle = "models/rectangle.py"
+        test_rectangle = "tests/test_models/test_rectangle.py"
+        result = style.check_files([rectangle, test_rectangle])
+        self.assertEqual(result.total_errors, 0)
+
+
+class TestDocs(unittest.TestCase):
+    """test docstrings for rectangle and test_rectangle files"""
+
+    def test_module(self):
+        """check module docstrings"""
+        self.assertTrue(len(rectangle.__doc__) > 0)
+
+    def test_class(self):
+        """check class docstrings"""
+        self.assertTrue(len(Rectangle.__doc__) > 0)
+
+    def test_method(self):
+        """check method docstrings"""
+        for func in dir(Rectangle):
+            self.assertTrue(len(func.__doc__) > 0)
 
 if __name__ == "__main__":
     unittest.main()
