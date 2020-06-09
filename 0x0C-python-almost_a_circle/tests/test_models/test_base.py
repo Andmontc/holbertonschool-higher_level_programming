@@ -7,6 +7,7 @@ import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+import pep8
 
 
 class TestBaseClass(unittest.TestCase):
@@ -46,42 +47,32 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(self.b8.id, 4)
         self.assertIsInstance(self.b8, Base)
 
-    def test_bool_id(self):
-        self.assertEqual(True, Base(True).id)
+class TestBasepep8(unittest.TestCase):
+    """Validate pep8"""
 
-    def test_list_id(self):
-        self.assertEqual([1, 2, 3], Base([1, 2, 3]).id)
+    def test_pep8(self):
+        """test for base file and test_base file pep8"""
+        style = pep8.StyleGuide(quiet=True)
+        base = "models/base.py"
+        test_base = "tests/test_models/test_base.py"
+        result = style.check_files([base, test_base])
+        self.assertEqual(result.total_errors, 2)
 
-    def test_tuple_id(self):
-        self.assertEqual((1, 2), Base((1, 2)).id)
+class TestDocs(unittest.TestCase):
+    """test docstrings for base and test_base files"""
 
-    def test_set_id(self):
-        self.assertEqual({1, 2, 3}, Base({1, 2, 3}).id)
+    def test_module(self):
+        """check module docstrings"""
+        self.assertTrue(len(Base.__doc__) > 0)
 
-    def test_frozenset_id(self):
-        self.assertEqual(frozenset({1, 2, 3}), Base(frozenset({1, 2, 3})).id)
+    def test_class(self):
+        """check class docstrings"""
+        self.assertTrue(len(Base.__doc__) > 0)
 
-    def test_range_id(self):
-        self.assertEqual(range(5), Base(range(5)).id)
-
-    def test_bytes_id(self):
-        self.assertEqual(b'Python', Base(b'Python').id)
-
-    def test_bytearray_id(self):
-        self.assertEqual(bytearray(b'abcefg'), Base(bytearray(b'abcefg')).id)
-
-    def test_memoryview_id(self):
-        self.assertEqual(memoryview(b'abcefg'), Base(memoryview(b'abcefg')).id)
-
-    def test_inf_id(self):
-        self.assertEqual(float('inf'), Base(float('inf')).id)
-
-    def test_NaN_id(self):
-        self.assertNotEqual(float('nan'), Base(float('nan')).id)
-
-    def test_two_args(self):
-        with self.assertRaises(TypeError):
-            Base(1, 2)
+    def test_method(self):
+        """check method docstrings"""
+        for func in dir(Base):
+            self.assertTrue(len(func.__doc__) > 0)
 
 if __name__ == "__main__":
     unittest.main()
