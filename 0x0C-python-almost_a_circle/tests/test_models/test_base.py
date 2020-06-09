@@ -30,23 +30,23 @@ class TestBaseClass(unittest.TestCase):
         """Test to check id's"""
 
         self.assertEqual(self.b1.id, 1)
-		self.assertIsInstance(self.b1, Base)
+        self.assertIsInstance(self.b1, Base)
         self.assertEqual(self.b2.id, 18)
-		self.assertIsInstance(self.b2, Base)
+        self.assertIsInstance(self.b2, Base)
         self.assertEqual(self.b3.id, 7)
-		self.assertIsInstance(self.b3, Base)
+        self.assertIsInstance(self.b3, Base)
         self.assertEqual(self.b4.id, 2)
-		self.assertIsInstance(self.b4, Base)
+        self.assertIsInstance(self.b4, Base)
         self.assertEqual(self.b5.id, 3)
-		self.assertIsInstance(self.b5, Base)
+        self.assertIsInstance(self.b5, Base)
         self.assertEqual(self.b6.id, "dam")
-		self.assertIsInstance(self.b6, Base)
+        self.assertIsInstance(self.b6, Base)
         self.assertEqual(self.b7.id, 17.8)
-		self.assertIsInstance(self.b7, Base)
+        self.assertIsInstance(self.b7, Base)
         self.assertEqual(self.b8.id, 4)
-		self.assertIsInstance(self.b8, Base)
+        self.assertIsInstance(self.b8, Base)
 
-	def test_bool_id(self):
+    def test_bool_id(self):
         self.assertEqual(True, Base(True).id)
 
     def test_list_id(self):
@@ -82,3 +82,6 @@ class TestBaseClass(unittest.TestCase):
     def test_two_args(self):
         with self.assertRaises(TypeError):
             Base(1, 2)
+
+if __name__ == "__main__":
+    unittest.main()
