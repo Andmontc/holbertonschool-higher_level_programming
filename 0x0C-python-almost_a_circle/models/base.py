@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Module for Class Base """
 import json
-from os import path
 
 
 class Base:
@@ -60,10 +59,12 @@ class Base:
     def load_from_file(cls):
         """ Return a list of instances """
         jfile = cls.__name__ + ".json"
-        if path.exists(jfile):
-            nlist = []
+        try:
             with open(jfile, 'r') as f:
-                for x in cls.from_json_string(f.read()):
-                    nlist.append(cls.create(**x))
-                return nlist
-        return []
+                cont = f.read()
+            nlist = []
+            for obj in cls.from_json_string(cont):
+                new.append(cls.create(**obj))
+            return nlist
+        except FileNotFoundError:
+            return []
