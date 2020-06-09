@@ -47,7 +47,7 @@ class Square(Rectangle):
         """ Dictionary representation of Square """
         ndicts = {}
         ndicts['id'] = self.id
-        ndicts['width'] = self.width
+        ndicts['size'] = self.size
         ndicts['x'] = self.x
         ndicts['y'] = self.y
         return ndicts
