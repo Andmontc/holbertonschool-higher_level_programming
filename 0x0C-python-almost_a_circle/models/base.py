@@ -45,7 +45,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ update methods rectangle and square """
-        new = cls(2, 7)
+        new = cls(2, 7, 4, 5)
         new.update(**dictionary)
         return new
 
