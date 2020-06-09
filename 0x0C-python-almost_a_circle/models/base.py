@@ -47,10 +47,12 @@ class Base:
         """ update methods rectangle and square """
         if cls.__name__ == "Rectangle":
             obj = Rectangle(1, 4, 5, 2)
-        elif cls.__name__ == "Square":
-            obj = Square(8, 3)
-        obj.update(**dictionary)
-        return obj
+            obj.update(**dictionary)
+            return obj
+        if cls.__name__ == "Square":
+            obj = Square(8, 3, 2)
+            obj.update(**dictionary)
+            return obj
 
     @classmethod
     def load_from_file(cls):
