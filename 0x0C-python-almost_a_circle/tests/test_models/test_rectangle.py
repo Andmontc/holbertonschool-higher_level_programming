@@ -174,11 +174,11 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.y, 7)
 
         r1.update(2, 4, 6, 8, 10, id=3, width=5, height=7, x=9, y=11)
-        self.assertEqual(r1.id, 3)
-        self.assertEqual(r1.width, 5)
-        self.assertEqual(r1.height, 7)
-        self.assertEqual(r1.x, 9)
-        self.assertEqual(r1.y, 11)
+        self.assertEqual(r1.id, 2)
+        self.assertEqual(r1.width, 4)
+        self.assertEqual(r1.height, 6)
+        self.assertEqual(r1.x, 8)
+        self.assertEqual(r1.y, 10)
 
     def test_to_dictionary(self):
         """Test to_dictionary method"""
