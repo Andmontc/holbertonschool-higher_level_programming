@@ -47,6 +47,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(self.b8.id, 4)
         self.assertIsInstance(self.b8, Base)
 
+
 class TestBasepep8(unittest.TestCase):
     """Validate pep8"""
 
@@ -57,6 +58,7 @@ class TestBasepep8(unittest.TestCase):
         test_base = "tests/test_models/test_base.py"
         result = style.check_files([base, test_base])
         self.assertEqual(result.total_errors, 2)
+
 
 class TestDocs(unittest.TestCase):
     """test docstrings for base and test_base files"""
