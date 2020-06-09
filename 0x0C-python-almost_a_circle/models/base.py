@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Module for Class Base """
 import json
+import csv
 
 
 class Base:
@@ -61,6 +62,28 @@ class Base:
         jfile = str(cls.__name__) + ".json"
         try:
             with open(jfile, "r") as jsonfile:
+                list_dicts = Base.from_json_string(jsonfile.read())
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ save a cvs file """
+        csvfile = cls.__name__ + ".csv"
+        with open(csvfile, 'w') as f:
+            if list_objs is None:
+                f.write("[]")
+            else:
+                nlist = [x.to_dictionary() for x in list_objs]
+                f.write(Base.to_json_string(nlist))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ load a cvs file """
+        csvfile = str(cls.__name__) + ".csv"
+        try:
+            with open(csvfile, "r") as jsonfile:
                 list_dicts = Base.from_json_string(jsonfile.read())
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
