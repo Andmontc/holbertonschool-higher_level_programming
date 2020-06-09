@@ -4,6 +4,7 @@
 import json
 from os import path
 from io import StringIO
+import pep8
 import sys
 import unittest
 from unittest.mock import patch
@@ -195,6 +196,34 @@ class TestSquareClass(unittest.TestCase):
 
         pass
 
+
+class TestSquarepep8(unittest.TestCase):
+    """Validate pep8"""
+
+    def test_pep8(self):
+        """test for base file and test_base file pep8"""
+        style = pep8.StyleGuide(quiet=True)
+        square = "models/square.py"
+        test_square = "tests/test_models/test_square.py"
+        result = style.check_files([square, test_square])
+        self.assertEqual(result.total_errors, 0)
+
+
+class TestDocs(unittest.TestCase):
+    """test docstrings for square and test_square files"""
+
+    def test_module(self):
+        """check module docstrings"""
+        self.assertTrue(len(square.__doc__) > 0)
+
+    def test_class(self):
+        """check class docstrings"""
+        self.assertTrue(len(Square.__doc__) > 0)
+
+    def test_method(self):
+        """check method docstrings"""
+        for func in dir(Square):
+            self.assertTrue(len(func.__doc__) > 0)
 
 if __name__ == "__main__":
     unittest.main()
