@@ -44,13 +44,17 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """ update methods rectangle and square """
+        """Returns an instance with all attributes already set"""
+
         if cls.__name__ == "Rectangle":
-            c = Rectangle(1, 1, 0, 0)
-        elif cls.__name__ == "Square":
-            c = Square(1, 0, 0)
-        c.update(**dictionary)
-        return c
+            obj = cls(6, 9)
+            obj.update(**dictionary)
+            return obj
+
+        if cls.__name__ == "Square":
+            obj = cls(7)
+            obj.update(**dictionary)
+            return obj
 
     @classmethod
     def load_from_file(cls):
