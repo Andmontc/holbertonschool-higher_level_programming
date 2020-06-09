@@ -214,7 +214,7 @@ class TestDocs(unittest.TestCase):
 
     def test_module(self):
         """check module docstrings"""
-        self.assertTrue(len(square.__doc__) > 0)
+        self.assertTrue(len(Square.__doc__) > 0)
 
     def test_class(self):
         """check class docstrings"""
