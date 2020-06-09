@@ -45,9 +45,12 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ update methods rectangle and square """
-        new = cls(2, 7, 4, 5)
-        new.update(**dictionary)
-        return new
+        if cls.__name__ == "Rectangle":
+            obj = Rectangle(1, 4, 5, 2)
+        elif cls.__name__ == "Square":
+            obj = Square(8, 3)
+        obj.update(**dictionary)
+        return obj
 
     @classmethod
     def load_from_file(cls):
