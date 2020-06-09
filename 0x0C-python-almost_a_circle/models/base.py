@@ -37,8 +37,9 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """ static method for json string representation """
+
         if json_string is None:
-            return "[]"
+            return []
         return json.loads(json_string)
 
     @classmethod
@@ -58,4 +59,4 @@ class Base:
                 for x in cls.from_json_string(f.read()):
                     nlist.append(cls.create(**x))
                 return nlist
-        return "[]"
+        return []
