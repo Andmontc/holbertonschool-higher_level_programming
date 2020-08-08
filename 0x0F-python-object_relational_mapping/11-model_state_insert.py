@@ -16,6 +16,6 @@ if __name__ == "__main__":
     newname = State(name="Lousiana")
     session.add(newname)
     dbase = session.query(State).filter_by(name="Lousiana").first()
-    print("{}".format(dbase.id))
+    print(dbase.id)
     session.commit()
     session.close()
