@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" script that takes in the name of a state as an argument and lists all cities """
+""" script that takes in the name of a state as an
+    argument and lists all cities """
 
 import MySQLdb
 import sys
@@ -11,7 +12,7 @@ if __name__ == "__main__":
     c = db.cursor()
     c.execute("SELECT cities.id, cities.name, states.name FROM cities\
               JOIN states ON cities.state_id=states.id\
-			  WHERE states.name=%s ORDER BY cities.id",(statename,))
+              WHERE states.name=%s ORDER BY cities.id", (statename,))
     r = c.fetchall()
     print(", ".join([row[1] for row in r]))
     c.close()
