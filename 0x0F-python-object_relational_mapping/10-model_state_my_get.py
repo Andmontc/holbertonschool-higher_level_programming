@@ -14,9 +14,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     argname = sys.argv[4]
-    dbase = session.query(State).order_by(State.id)
-    for state in dbase:
-        if state.name == argname:
-            print("{}".format(state.id))
-    print("Not found")
+    dbase = session.query(State).filter_by(name=argname).first()
+    if dbase:
+            print("{}".format(dbase.id))
+    else:
+        print("Not found")
     session.close()
