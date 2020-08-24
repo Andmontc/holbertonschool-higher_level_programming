@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""python script that fetch a page"""
+""" Script that fetch a page """
+import urllib.request
 
 if __name__ == '__main__':
-    import urllib.request
     with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
         html = response.read()
-        print('Body response:')
-        print('\t- type: ' + str(type(html)))
-        print('\t- content: ' + str(html))
-        print('\t- utf8 content: ' + html.decode("utf-8"))
+        print("Body response:")
+        print("\t- type: {}".format(type(html)))
+        print("\t- content: {}".format(html))
+        print("\t- utf8 content: {}".format(html.decode('utf-8')))
