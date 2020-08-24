@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""  script that takes in a URL and an email, sends a POST request """
+"""  script that takes in a URL and show and error code """
 import requests
 import sys
 
