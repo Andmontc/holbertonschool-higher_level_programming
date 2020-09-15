@@ -5,5 +5,5 @@ if (arg <= 3) {
 } else {
   const maxnum = process.argv.slice(2);
   maxnum.sort();
-  console.log(maxnum[maxnum.length - 2]);
+  console.log(parseInt(maxnum[maxnum.length - 2]));
 }
