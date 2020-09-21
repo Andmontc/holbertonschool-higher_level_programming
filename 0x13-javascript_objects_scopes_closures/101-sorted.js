@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const dict = require('./101-data').dict;
-let ndict = {};
-for (let k in dict) {
+const ndict = {};
+for (const k in dict) {
   if (!ndict[dict[k]]) {
     ndict[dict[k]] = [k];
   } else {
