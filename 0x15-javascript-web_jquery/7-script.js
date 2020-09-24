@@ -1,4 +1,4 @@
 #!/usr/bin/node
 $.getJSON('https://swapi-api.hbtn.io/api/people/5/?format=json', info => {
-	$('#character').text(info.name);
+  $('#character').text(info.name);
 });
