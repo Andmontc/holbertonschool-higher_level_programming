@@ -1,4 +1,4 @@
 #!/usr/bin/node
-$('#red_header').click (() => {
-	$('header').addClass('red');
+$('#red_header').click(() => {
+  $('header').addClass('red');
 });
